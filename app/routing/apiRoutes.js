@@ -7,13 +7,11 @@ module.exports = function(app) {
   });
 
   app.post("/api/friends", function(req,res){
-    console.log("**req**"+JSON.stringify(req.body)); //TODO deelete this
     var match = { name: "", photo: "" };
     var newUser = req.body;
-    console.log("new User: "+ JSON.stringify(newUser)); //TODO delete this
     var newUserName= newUser.name;
     var newUserPhoto = newUser.photo;
-    var newUserScores = newUser["scores[]"];
+    var newUserScores = newUser["scores"];
     var minDifference = 1000;
     var currentDifference;
     var matchId ; //will be assigned to the one with the min difference.
