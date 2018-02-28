@@ -7,11 +7,13 @@ module.exports = function(app) {
   });
 
   app.post("/api/friends", function(req,res){
+    console.log("**req**"+JSON.stringify(req.body)); //TODO deelete this
     var match = { name: "", photo: "" };
     var newUser = req.body;
-    var newUserName= req.body.name;
-    var newUserPhoto =req.body.photo;
-    var newUserScores = req.body.scores;
+    console.log("new User: "+ JSON.stringify(newUser)); //TODO delete this
+    var newUserName= newUser.name;
+    var newUserPhoto = newUser.photo;
+    var newUserScores = newUser["scores[]"];
     var minDifference = 1000;
     var currentDifference;
     var matchId ; //will be assigned to the one with the min difference.
@@ -26,8 +28,9 @@ module.exports = function(app) {
       }
     }
     friendsList.push( req.body ); //add new user to the friendsList
-    match.name = friendsList[matchid].name;
-    match.photo = friendList[matchid].photo;
+    match.name = friendsList[matchId].name;
+    match.photo = friendsList[matchId].photo;
+ 
     res.json(match);
   });
 };
