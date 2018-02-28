@@ -12,7 +12,6 @@ module.exports = function(app) {
       photo: ""
     };
     var newUser = req.body;
-    console.log(JSON.stringify(newUser));
     var newUserName= req.body.name;
     var newUserPhoto =req.body.photo;
     var newUserScores = req.body.scores;
